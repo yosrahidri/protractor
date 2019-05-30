@@ -25,10 +25,20 @@ exports.config = {
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
 
+    
     var AllureReporter = require('jasmine-allure-reporter');
-    jasmine.getEnv().addReporter(new AllureReporter({
-      resultsDir: 'allure-results'
+    jasmine.getEnv().addReporter(newAllureReporter({
+    resultsDir:'allure_results'
     }));
+    jasmine.getEnv().afterEach(function(done){
+    browser.takeScreenshot().then(function (png) {
+    allure.createAttachment('Screenshot', function () {
+    returnnewBuffer(png, 'base64')
+    }, 'image/png')();
+    done();
+    })
+    });
+    }
   
     
   }
