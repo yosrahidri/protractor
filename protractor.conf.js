@@ -30,14 +30,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new AllureReporter({
     resultsDir:'allure_results'
     }));
-    jasmine.getEnv().afterEach(function(done){
-    browser.takeScreenshot().then(function (png) {
-    allure.createAttachment('Screenshot', function () {
-    returnnewBuffer(png, 'base64')
-    }, 'image/png')();
-    done();
-    })
-    });
+   
     }
   
     
