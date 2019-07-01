@@ -28,7 +28,7 @@ exports.config = {
     
     var AllureReporter = require('jasmine-allure-reporter');
     jasmine.getEnv().addReporter(new AllureReporter({
-    resultsDir:'allure_report'
+    resultsDir:'allure-report'
     }));
    
     }
